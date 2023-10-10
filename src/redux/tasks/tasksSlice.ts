@@ -3,7 +3,7 @@ import type { RootState } from '../store'
 
 interface Task {
   id: string,
-  title: string,
+  task: string,
   description: string,
   completion: boolean,
 }
