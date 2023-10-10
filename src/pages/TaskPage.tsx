@@ -2,11 +2,12 @@
 import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
 import Row from 'react-bootstrap/Row'
-import { AddButton } from '../components/AddButton'
+import { AddOrUpdateButton } from '../components/AddOrUpdateButton'
 
-export const TaskPage = () => {
+export const TaskPage = ({ editMode }: { editMode?: boolean}) => {
   return (
     <>
+      <h3>{editMode ? 'Update Your Task' : 'Create a Task'}</h3>
       <Form>
         <Col className="mb-3">
           <Form.Group as={Row} md="6" className="mb-3">
@@ -25,23 +26,18 @@ export const TaskPage = () => {
               placeholder="Enter a description"
             ></Form.Control>
           </Form.Group>
-          <Form.Group as={Col} md="6">
-            <Form.Label  className="ml-0">Completion: </Form.Label>
-              <Form.Check
-                type="radio"
-                id={`default-radio`}
-                name="completion"
-                label={'done'}
-              />
-              <Form.Check
-                type="radio"
-                id={`default-radio`}
-                name="completion"
-                label={'in progress'}
-              />
-          </Form.Group>
+          { editMode ? (<Form.Group as={Col} md="6">
+            <Form.Label className="ml-0">Completion: </Form.Label>
+            <Form.Check
+              type="radio"
+              id={`default-radio`}
+              name="completion"
+              label={'done'}
+            />
+          </Form.Group>) : null
+          }
         </Col>
-        <AddButton />
+        <AddOrUpdateButton title={editMode ? "Update your task" : "Add a new task"}/>
       </Form>
     </>
   )

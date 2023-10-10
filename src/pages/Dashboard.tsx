@@ -1,6 +1,6 @@
 //import React from 'react'
 import Table from 'react-bootstrap/Table'
-import { AddButton } from '../components/AddButton'
+import { AddOrUpdateButton } from '../components/AddOrUpdateButton'
 import { Link } from 'react-router-dom'
 
 export const Dashboard = () => {
@@ -16,7 +16,7 @@ export const Dashboard = () => {
         <tbody></tbody>
       </Table>
       <Link to="/task">
-        <AddButton />
+        <AddOrUpdateButton title='Add a new task'/>
       </Link>
     </>
   )
