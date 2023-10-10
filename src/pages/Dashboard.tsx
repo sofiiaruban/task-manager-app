@@ -1,6 +1,7 @@
 //import React from 'react'
 import Table from 'react-bootstrap/Table'
 import { AddButton } from '../components/AddButton'
+import { Link } from 'react-router-dom'
 
 export const Dashboard = () => {
   return (
@@ -14,7 +15,9 @@ export const Dashboard = () => {
         </thead>
         <tbody></tbody>
       </Table>
-      <AddButton />
+      <Link to="/task">
+        <AddButton />
+      </Link>
     </>
   )
 }
