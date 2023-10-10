@@ -1,10 +1,9 @@
 //import React from 'react'
 
-export const TaskPage = ({editMode}: {editMode?: boolean}) => {
+export const TaskPage = () => {
   return (
     <>
       <div>TaskPage</div>
-      {editMode ? 'editMode' : 'not editMode'}
     </>
   )
 }
