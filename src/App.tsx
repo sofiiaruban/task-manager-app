@@ -11,10 +11,7 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<Dashboard />}></Route>
           <Route path="/task" element={<TaskPage />}></Route>
-          <Route
-            path="/task/:id"
-            element={<TaskPage editMode={true} />}
-          ></Route>
+          <Route path="/task/:id" element={<TaskPage editMode={true}/>}></Route>
         </Routes>
       </HashRouter>
     </>
