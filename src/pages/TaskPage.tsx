@@ -71,55 +71,55 @@ export const TaskPage: React.FC<TaskPageProp> = ({ editMode }) => {
 
   return (
     <>
-      <h3 className="text-center mb-3">
+      <h3 className='text-center mb-3'>
         {editMode ? 'Update Your Task' : 'Create a Task'}
       </h3>
-      <Container className="border border-2 border-info pt-2 rounded">
+      <Container className='border border-2 border-info pt-2 rounded'>
         <Row>
-          <Col className="d-flex justify-content-end pr-2">
-            <Link to="/">
-              <IconButton src={close} imgDesc="Cross"/>
+          <Col className='d-flex justify-content-end pr-2'>
+            <Link to='/'>
+              <IconButton src={close} imgDesc='Cross'/>
             </Link>
           </Col>
         </Row>
-        <Form onSubmit={handleSubmit} className="mx-5 mb-3">
-          <Col className="mb-3">
-            <Form.Group as={Row} md="6" className="mb-3">
+        <Form onSubmit={handleSubmit} className='mx-5 mb-3'>
+          <Col className='mb-3'>
+            <Form.Group as={Row} md='6' className='mb-3'>
               <Form.Label>Task: </Form.Label>
               <Form.Control
                 required
-                type="text"
-                name="task"
+                type='text'
+                name='task'
                 value={formData.task || ''}
                 onChange={handleChange}
-                placeholder="Enter a task"
+                placeholder='Enter a task'
               ></Form.Control>
             </Form.Group>
-            <Form.Group as={Row} md="6" className="mb-3">
+            <Form.Group as={Row} md='6' className='mb-3'>
               <Form.Label>Description: </Form.Label>
               <Form.Control
                 required
-                type="text"
-                name="description"
+                type='text'
+                name='description'
                 value={formData.description || ''}
                 onChange={handleChange}
-                placeholder="Enter a description"
+                placeholder='Enter a description'
               ></Form.Control>
             </Form.Group>
-            <Form.Group as={Col} md="6">
-              <Form.Label className="ml-0">Completion: </Form.Label>
+            <Form.Group as={Col} md='6'>
+              <Form.Label className='ml-0'>Completion: </Form.Label>
               <Form.Check
-                type="radio"
-                name="completion"
-                label="in progress"
+                type='radio'
+                name='completion'
+                label='in progress'
                 value={'in progress'}
                 checked={formData.completion === 'in progress'}
                 onChange={handleChange}
               />
               <Form.Check
-                type="radio"
-                name="completion"
-                label="done"
+                type='radio'
+                name='completion'
+                label='done'
                 value={'done'}
                 checked={formData.completion === 'done'}
                 onChange={handleChange}

@@ -13,15 +13,15 @@ export const StatusSelect: React.FC<StatusSelectProps> = ({ onSelectOption }) =>
 
   return (
     <Row>
-      <Col xs={12} className="d-flex justify-content-end">
+      <Col xs={12} className='d-flex justify-content-end'>
         <Form.Select
-          aria-label="status select"
-          className="w-50"
+          aria-label='status select'
+          className='w-50'
           onChange={handleChange}
         >
-          <option value="all">All</option>
-          <option value="done">Done</option>
-          <option value="in progress">In progress</option>
+          <option value='all'>All</option>
+          <option value='done'>Done</option>
+          <option value='in progress'>In progress</option>
         </Form.Select>
       </Col>
     </Row>

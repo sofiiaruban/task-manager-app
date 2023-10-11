@@ -39,6 +39,7 @@ export const Dashboard: React.FC = () => {
   }
 
   const tasksToDisplay = tasksList?.length > 0 ? tasksList : storageTasks
+
   // filter func
   const filteredTasks =
     selectedStatus === 'all'
@@ -64,11 +65,11 @@ export const Dashboard: React.FC = () => {
               <tr key={task.id}>
                 <td>{task.task}</td>
                 <td>{task.description}</td>
-                <td colSpan={4} className="text-center">
+                <td colSpan={4} className='text-center'>
                   {task.completion === 'done' ? (
                     <IconButton
                       src={done}
-                      imgDesc="Check"
+                      imgDesc='Check'
                       onClick={() =>
                         handleToggleCompletion(task.id, task.completion)
                       }
@@ -76,22 +77,22 @@ export const Dashboard: React.FC = () => {
                   ) : (
                     <IconButton
                       src={progress}
-                      imgDesc="Progress"
+                      imgDesc='Progress'
                       onClick={() =>
                         handleToggleCompletion(task.id, task.completion)
                       }
                     />
                   )}
                 </td>
-                <td className="text-center">
+                <td className='text-center'>
                   <Link to={`/task/${task.id}`}>
-                    <IconButton src={edit} imgDesc="Pencil" />
+                    <IconButton src={edit} imgDesc='Pencil' />
                   </Link>
                 </td>
-                <td className="text-center">
+                <td className='text-center'>
                   <IconButton
                     src={trash}
-                    imgDesc="Trash can"
+                    imgDesc='Trash can'
                     onClick={() => handleDelete(task.id)}
                   />
                 </td>
@@ -104,8 +105,8 @@ export const Dashboard: React.FC = () => {
           )}
         </tbody>
       </Table>
-      <Link to="/task">
-        <AddOrUpdateButton title="Add a new task" />
+      <Link to='/task'>
+        <AddOrUpdateButton title='Add a new task' />
       </Link>
     </Container>
   )

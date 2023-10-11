@@ -6,7 +6,7 @@ import { IconButtonProps } from '../types/IconButtonProps'
 export const IconButton: React.FC<IconButtonProps> = ({ src, onClick, imgDesc }) => {
   return (
     <Image
-      role="button"
+      role='button'
       src={src}
       alt={imgDesc}
       onClick={onClick}
