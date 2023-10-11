@@ -70,30 +70,28 @@ export const Dashboard: React.FC = () => {
                     <IconButton
                       src={done}
                       imgDesc='Check'
-                      onClick={() =>
-                        handleToggleCompletion(task.id, task.completion)
-                      }
+                      onClick={() => handleToggleCompletion(task.id, task.completion)} 
+                      tooltip='Task is done'
                     />
                   ) : (
                     <IconButton
-                      src={progress}
-                      imgDesc='Progress'
-                      onClick={() =>
-                        handleToggleCompletion(task.id, task.completion)
-                      }
+                        src={progress}
+                        imgDesc='Progress'
+                        onClick={() => handleToggleCompletion(task.id, task.completion)}
+                        tooltip='Task is in progress'
                     />
                   )}
                 </td>
                 <td className='text-center'>
                   <Link to={`/task/${task.id}`}>
-                    <IconButton src={edit} imgDesc='Pencil' />
+                    <IconButton src={edit} imgDesc='Pencil' tooltip='Edit the task' />
                   </Link>
                 </td>
                 <td className='text-center'>
                   <IconButton
                     src={trash}
                     imgDesc='Trash can'
-                    onClick={() => handleDelete(task.id)}
+                    onClick={() => handleDelete(task.id)} tooltip='Delete the task'
                   />
                 </td>
               </tr>
