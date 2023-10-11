@@ -23,7 +23,7 @@ export const StatusSelect: React.FC<StatusSelectProps> = ({ onSelectOption }) =>
         >
           <Form.Select
             aria-label="status select"
-            className="w-25"
+            className="w-50"
             onChange={handleChange}
           >
             <option value="all">All</option>
