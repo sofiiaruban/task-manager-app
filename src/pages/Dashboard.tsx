@@ -30,6 +30,7 @@ export const Dashboard: React.FC = () => {
 
   // filter func
   const filteredTasks = selectedStatus === 'all' ? tasksList : tasksList.filter((task) => task.completion === selectedStatus)
+  
   return (
     <Container>
       <StatusSelect onSelectOption={handleStatusSelect} />
