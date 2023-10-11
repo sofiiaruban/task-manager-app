@@ -1,12 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from '../store'
+import { Task } from '../../types/types'
 
-interface Task {
-  id: string,
-  task: string,
-  description: string,
-  completion: boolean,
-}
 const initialState: Task[] = []
 
 export const tasksSlice = createSlice({

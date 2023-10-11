@@ -7,6 +7,7 @@ import { ChangeEvent, FormEvent, useState } from 'react'
 import { uid } from 'uid';
 import { addTask } from '../redux/tasks/tasksSlice'
 import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 export const TaskPage = ({ editMode }: { editMode?: boolean}) => {
   const [formData, setFormData] = useState({
@@ -15,6 +16,8 @@ export const TaskPage = ({ editMode }: { editMode?: boolean}) => {
     task: '',
     description: '',
   })
+  const navigate = useNavigate()
+
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value
     const name = e.target.name
@@ -31,6 +34,7 @@ export const TaskPage = ({ editMode }: { editMode?: boolean}) => {
     e.preventDefault()
     console.log('submit')
     dispatch(addTask(formData))
+    navigate('/')
   }
   return (
     <>
