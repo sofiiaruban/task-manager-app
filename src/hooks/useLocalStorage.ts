@@ -19,7 +19,7 @@ const useLocalStorage = (key: string, initialValue: Task[] = []) => {
       console.error(error)
     }
   }
-  const updateTaskById = (taskId: string, updatedData: Partial<Task>) => {
+  const updateTaskById = (taskId: string, updatedData: Partial<Task> | Task) => {
     const updatedTasks = value.map((task: Task) => {
       if (task.id === taskId) {
         return { ...task, ...updatedData };

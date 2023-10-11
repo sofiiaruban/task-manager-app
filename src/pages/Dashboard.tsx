@@ -19,7 +19,10 @@ export const Dashboard: React.FC = () => {
   const [selectedStatus, setSelectedStatus] = useState('all')
   const tasksList = useSelector((state: RootState) => state.tasks)
   const dispatch = useDispatch()
-  const [storageTasks, { deleteTaskById }] = useLocalStorage('tasks', [])
+  const [storageTasks, { deleteTaskById, updateTaskById }] = useLocalStorage(
+    'tasks',
+    []
+  )
 
   // event handlers
   const handleDelete = (taskId: string) => {
@@ -32,6 +35,7 @@ export const Dashboard: React.FC = () => {
   const handleToggleCompletion = (taskId: string, completion: string) => {
     const newCompletion = completion === 'done' ? 'in progress' : 'done'
     dispatch(updateCompletion({ id: taskId, completion: newCompletion }))
+    updateTaskById(taskId, {[completion]: newCompletion})
   }
 
   const tasksToDisplay = tasksList?.length > 0 ? tasksList : storageTasks
