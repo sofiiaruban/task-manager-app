@@ -1,27 +1,39 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Table from 'react-bootstrap/Table'
 import { AddOrUpdateButton } from '../components/AddOrUpdateButton'
+import { StatusSelect } from '../components/StatusSelect'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux' 
 import { RootState } from '../redux/store'
 import { deleteTask } from '../redux/tasks/tasksSlice' 
-import { Task } from '../types/types'
+import { Task } from '../types/Task'
 import { IconButton } from '../components/IconButton'
 import edit from '../assets/edit.svg'
 import trash from '../assets/trash.svg'
 import done from '../assets/check_ring.svg'
 import progress from '../assets/progress.svg'
+import Container from 'react-bootstrap/Container'
 
 export const Dashboard: React.FC = () => {
+  const [selectedStatus, setSelectedStatus] = useState('all')
   const tasksList = useSelector((state: RootState) => state.tasks)
 
   const dispatch = useDispatch();
+
+  // event handlers
   const handleDelete = (taskId: string) => {
     dispatch(deleteTask(taskId))
   }
 
+  const handleStatusSelect = (selectedValue: string) => {
+    setSelectedStatus(selectedValue)
+  }
+  // filter func
+  const filteredTasks = selectedStatus === 'all' ? tasksList : tasksList.filter((task) => task.completion === selectedStatus)
+
   return (
-    <>
+    <Container>
+      <StatusSelect onSelectOption={handleStatusSelect} />
       <Table>
         <thead>
           <tr>
@@ -33,13 +45,13 @@ export const Dashboard: React.FC = () => {
           </tr>
         </thead>
         <tbody>
-          {tasksList
-            ? tasksList.map((task: Task) => (
+          {filteredTasks
+            ? filteredTasks.map((task: Task) => (
                 <tr key={task.id}>
                   <th>{task.task}</th>
                   <th>{task.description}</th>
                   <th colSpan={4} style={{ textAlign: 'center' }}>
-                    {task.completion === "done" ? (
+                    {task.completion === 'done' ? (
                       <IconButton src={done} />
                     ) : (
                       <IconButton src={progress} />
@@ -64,6 +76,6 @@ export const Dashboard: React.FC = () => {
       <Link to="/task">
         <AddOrUpdateButton title="Add a new task" />
       </Link>
-    </>
+    </Container>
   )
 }

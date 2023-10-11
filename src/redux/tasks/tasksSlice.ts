@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from '../store'
-import { Task } from '../../types/types'
+import { Task } from '../../types/Task'
 
 const initialState: Task[] = []
 

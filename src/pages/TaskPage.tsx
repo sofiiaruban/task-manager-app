@@ -9,7 +9,7 @@ import { addTask, editTask} from '../redux/tasks/tasksSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 import { RootState } from '../redux/store'
-import { Task } from '../types/types'
+import { Task } from '../types/Task'
 
 
 export const TaskPage = ({ editMode }: { editMode?: boolean}) => {
@@ -25,7 +25,6 @@ export const TaskPage = ({ editMode }: { editMode?: boolean}) => {
   const tasksList = useSelector((state: RootState) => state.tasks)
 
  //event handlers
-
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value
     const name = e.target.name
@@ -49,7 +48,6 @@ export const TaskPage = ({ editMode }: { editMode?: boolean}) => {
   }
 
   //get task from store
-
   const getTaskFromStore = (taskId: string | undefined) => {
     const selectedTask = tasksList?.find((task: Task) => task.id === taskId)
     if (selectedTask) {
@@ -60,7 +58,7 @@ export const TaskPage = ({ editMode }: { editMode?: boolean}) => {
     if (editMode) {
       getTaskFromStore(id)
     }
-  }, [])
+  }, [editMode, id])
 
   return (
     <>
@@ -96,17 +94,17 @@ export const TaskPage = ({ editMode }: { editMode?: boolean}) => {
             <Form.Check
               type="radio"
               name="completion"
-              label="done"
-              value={"done"}
-              checked={formData.completion ==="done"}
+              label="in progress"
+              value={'in progress'}
+              checked={formData.completion === 'in progress'}
               onChange={handleChange}
             />
             <Form.Check
               type="radio"
               name="completion"
-              label="in progress"
-              value={"in progress"}
-              checked={formData.completion === "in progress"}
+              label="done"
+              value={'done'}
+              checked={formData.completion === 'done'}
               onChange={handleChange}
             />
           </Form.Group>
