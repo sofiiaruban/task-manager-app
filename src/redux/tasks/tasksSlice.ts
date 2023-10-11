@@ -19,11 +19,19 @@ export const tasksSlice = createSlice({
       const existingTaskIndex = state.findIndex((task) => task.id === id)
 
       if (existingTaskIndex !== -1) {
-        state[existingTaskIndex] = action.payload 
+        state[existingTaskIndex] = action.payload
       }
-    }
+    },
+    updateCompletion: (state, action: PayloadAction<{ id: string; completion: string }>) => {
+      const { id, completion } = action.payload
+      const existingTask = state.find((task) => task.id === id)
+
+      if (existingTask) {
+        existingTask.completion = completion
+      }
+    },
   }
 }) 
-export const { addTask, deleteTask, editTask } = tasksSlice.actions
+export const { addTask, deleteTask, editTask, updateCompletion } = tasksSlice.actions
 export const selectTasks = (state: RootState) => state.tasks
 export default tasksSlice.reducer
