@@ -17,8 +17,7 @@ import Container from 'react-bootstrap/Container'
 export const Dashboard: React.FC = () => {
   const [selectedStatus, setSelectedStatus] = useState('all')
   const tasksList = useSelector((state: RootState) => state.tasks)
-
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   // event handlers
   const handleDelete = (taskId: string) => {
@@ -28,10 +27,9 @@ export const Dashboard: React.FC = () => {
   const handleStatusSelect = (selectedValue: string) => {
     setSelectedStatus(selectedValue)
   }
-  
+
   // filter func
   const filteredTasks = selectedStatus === 'all' ? tasksList : tasksList.filter((task) => task.completion === selectedStatus)
-
   return (
     <Container>
       <StatusSelect onSelectOption={handleStatusSelect} />
@@ -51,19 +49,19 @@ export const Dashboard: React.FC = () => {
                 <tr key={task.id}>
                   <th>{task.task}</th>
                   <th>{task.description}</th>
-                  <th colSpan={4} style={{ textAlign: 'center' }}>
+                  <th colSpan={4} className="text-center">
                     {task.completion === 'done' ? (
                       <IconButton src={done} />
                     ) : (
                       <IconButton src={progress} />
                     )}
                   </th>
-                  <th style={{ textAlign: 'center' }}>
+                  <th className="text-center">
                     <Link to={`/task/${task.id}`}>
                       <IconButton src={edit} />
                     </Link>
                   </th>
-                  <th style={{ textAlign: 'center' }}>
+                  <th className="text-center">
                     <IconButton
                       src={trash}
                       onClick={() => handleDelete(task.id)}
