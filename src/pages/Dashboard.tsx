@@ -5,7 +5,7 @@ import { StatusSelect } from '../components/StatusSelect'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux' 
 import { RootState } from '../redux/store'
-import { deleteTask } from '../redux/tasks/tasksSlice' 
+import { deleteTask, updateCompletion } from '../redux/tasks/tasksSlice' 
 import { Task } from '../types/Task'
 import { IconButton } from '../components/IconButton'
 import edit from '../assets/edit.svg'
@@ -23,9 +23,12 @@ export const Dashboard: React.FC = () => {
   const handleDelete = (taskId: string) => {
     dispatch(deleteTask(taskId))
   }
-
   const handleStatusSelect = (selectedValue: string) => {
     setSelectedStatus(selectedValue)
+  }
+  const handleToggleCompletion = (taskId: string, completion: string) => {
+    const newCompletion = completion === 'done' ? 'in progress' : 'done'
+    dispatch(updateCompletion({ id: taskId, completion: newCompletion }))
   }
 
   // filter func
@@ -52,19 +55,32 @@ export const Dashboard: React.FC = () => {
                   <th>{task.description}</th>
                   <th colSpan={4} className="text-center">
                     {task.completion === 'done' ? (
-                      <IconButton src={done} />
+                      <IconButton
+                        src={done}
+                        imgDesc='Check'
+                        onClick={() =>
+                          handleToggleCompletion(task.id, task.completion)
+                        }
+                      />
                     ) : (
-                      <IconButton src={progress} />
+                      <IconButton
+                        src={progress}
+                        imgDesc='Progress'
+                        onClick={() =>
+                          handleToggleCompletion(task.id, task.completion)
+                        }
+                      />
                     )}
                   </th>
                   <th className="text-center">
                     <Link to={`/task/${task.id}`}>
-                      <IconButton src={edit} />
+                      <IconButton src={edit} imgDesc='Pencil'/>
                     </Link>
                   </th>
                   <th className="text-center">
                     <IconButton
                       src={trash}
+                      imgDesc="Trash can"
                       onClick={() => handleDelete(task.id)}
                     />
                   </th>

@@ -73,7 +73,7 @@ export const TaskPage: React.FC<TaskPageProp> = ({ editMode }) => {
         <Row>
           <Col className="d-flex justify-content-end pr-2">
             <Link to="/">
-              <IconButton src={close} />
+              <IconButton src={close} imgDesc="Cross"/>
             </Link>
           </Col>
         </Row>
