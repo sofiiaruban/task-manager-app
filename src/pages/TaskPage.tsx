@@ -15,6 +15,7 @@ import Container from 'react-bootstrap/Container'
 import { IconButton } from '../components/IconButton'
 import close from '../assets/Close_round.svg'
 import { Link } from 'react-router-dom'
+import useLocalStorage from '../hooks/useLocalStorage'
 
 export const TaskPage: React.FC<TaskPageProp> = ({ editMode }) => {
   const [formData, setFormData] = useState({
@@ -27,6 +28,8 @@ export const TaskPage: React.FC<TaskPageProp> = ({ editMode }) => {
   const { id } = useParams<{ id: string | undefined }>()
   const dispatch = useDispatch()
   const tasksList = useSelector((state: RootState) => state.tasks)
+  const [storageTasks, { setToStorage, updateTaskById}] =
+     useLocalStorage('tasks', [])
 
  //event handlers
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -38,29 +41,31 @@ export const TaskPage: React.FC<TaskPageProp> = ({ editMode }) => {
       [name]: value
     }))
   }
-
+  
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (!editMode) {
       dispatch(addTask(formData))
+      setToStorage([...storageTasks, formData])
     }
     if (editMode) {
       dispatch(editTask(formData))
+      updateTaskById(formData.id, formData)
     }
     
     navigate('/')
   }
-
   //get task from store
-  const getTaskFromStore = (taskId: string | undefined) => {
-    const selectedTask = tasksList?.find((task: Task) => task.id === taskId)
+  const getTask= (taskId: string | undefined) => {
+    const tasks = tasksList?.length > 0 ? tasksList : storageTasks
+    const selectedTask = tasks.find((task: Task) => task.id === taskId)
     if (selectedTask) {
       setFormData(selectedTask)
     }
   }
   useEffect(()=> {
     if (editMode) {
-      getTaskFromStore(id)
+      getTask(id)
     }
   }, [editMode, id])
 

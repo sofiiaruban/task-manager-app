@@ -13,15 +13,18 @@ import trash from '../assets/trash.svg'
 import done from '../assets/check_ring.svg'
 import progress from '../assets/progress.svg'
 import Container from 'react-bootstrap/Container'
+import useLocalStorage from '../hooks/useLocalStorage'
 
 export const Dashboard: React.FC = () => {
   const [selectedStatus, setSelectedStatus] = useState('all')
   const tasksList = useSelector((state: RootState) => state.tasks)
   const dispatch = useDispatch()
+  const [storageTasks, { deleteTaskById }] = useLocalStorage('tasks', [])
 
   // event handlers
   const handleDelete = (taskId: string) => {
     dispatch(deleteTask(taskId))
+    deleteTaskById(taskId)
   }
   const handleStatusSelect = (selectedValue: string) => {
     setSelectedStatus(selectedValue)
@@ -31,8 +34,12 @@ export const Dashboard: React.FC = () => {
     dispatch(updateCompletion({ id: taskId, completion: newCompletion }))
   }
 
+  const tasksToDisplay = tasksList?.length > 0 ? tasksList : storageTasks
   // filter func
-  const filteredTasks = selectedStatus === 'all' ? tasksList : tasksList.filter((task) => task.completion === selectedStatus)
+  const filteredTasks =
+    selectedStatus === 'all'
+      ? tasksToDisplay
+      : tasksToDisplay.filter((task:Task) => task.completion === selectedStatus)
   
   return (
     <Container>
