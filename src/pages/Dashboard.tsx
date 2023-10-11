@@ -28,6 +28,7 @@ export const Dashboard: React.FC = () => {
   const handleStatusSelect = (selectedValue: string) => {
     setSelectedStatus(selectedValue)
   }
+  
   // filter func
   const filteredTasks = selectedStatus === 'all' ? tasksList : tasksList.filter((task) => task.completion === selectedStatus)
 

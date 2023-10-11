@@ -1,4 +1,4 @@
-//import React from 'react'
+import React from 'react'
 import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
 import Row from 'react-bootstrap/Row'
@@ -10,9 +10,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 import { RootState } from '../redux/store'
 import { Task } from '../types/Task'
+import { TaskPageProp } from '../types/TaskPageProp'
 
 
-export const TaskPage = ({ editMode }: { editMode?: boolean}) => {
+export const TaskPage: React.FC<TaskPageProp> = ({ editMode }) => {
   const [formData, setFormData] = useState({
     id: uid(),
     completion: '',
@@ -110,7 +111,7 @@ export const TaskPage = ({ editMode }: { editMode?: boolean}) => {
           </Form.Group>
         </Col>
         <AddOrUpdateButton
-          title={editMode ? 'Update your task' : 'Add a new task'}
+          title={editMode ? 'Update task' : 'Add a task'}
         />
       </Form>
     </>
