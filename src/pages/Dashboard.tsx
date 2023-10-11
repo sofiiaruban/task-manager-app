@@ -20,7 +20,6 @@ export const Dashboard: React.FC = () => {
     dispatch(deleteTask(taskId))
   }
 
-
   return (
     <>
       <Table>
@@ -28,7 +27,7 @@ export const Dashboard: React.FC = () => {
           <tr>
             <th>Task</th>
             <th>Description</th>
-            <th colSpan={4}>Completion</th>
+            <th colSpan={4}>Status</th>
             <th>Edit</th>
             <th>Delete</th>
           </tr>
@@ -40,7 +39,7 @@ export const Dashboard: React.FC = () => {
                   <th>{task.task}</th>
                   <th>{task.description}</th>
                   <th colSpan={4} style={{ textAlign: 'center' }}>
-                    {task.completion ? (
+                    {task.completion === "done" ? (
                       <IconButton src={done} />
                     ) : (
                       <IconButton src={progress} />

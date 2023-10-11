@@ -3,20 +3,28 @@ import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
 import Row from 'react-bootstrap/Row'
 import { AddOrUpdateButton } from '../components/AddOrUpdateButton'
-import { ChangeEvent, FormEvent, useState } from 'react'
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
 import { uid } from 'uid';
-import { addTask } from '../redux/tasks/tasksSlice'
-import { useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { addTask, editTask} from '../redux/tasks/tasksSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate, useParams } from 'react-router-dom'
+import { RootState } from '../redux/store'
+import { Task } from '../types/types'
+
 
 export const TaskPage = ({ editMode }: { editMode?: boolean}) => {
   const [formData, setFormData] = useState({
     id: uid(),
-    completion: false,
+    completion: '',
     task: '',
     description: '',
   })
   const navigate = useNavigate()
+  const { id } = useParams<{ id: string | undefined }>()
+  const dispatch = useDispatch()
+  const tasksList = useSelector((state: RootState) => state.tasks)
+
+ //event handlers
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value
@@ -26,16 +34,34 @@ export const TaskPage = ({ editMode }: { editMode?: boolean}) => {
       ...prevState,
       [name]: value
     }))
-    console.log(formData)
   }
-  const dispatch = useDispatch()
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    console.log('submit')
-    dispatch(addTask(formData))
+    if (!editMode) {
+      dispatch(addTask(formData))
+    }
+    if (editMode) {
+      dispatch(editTask(formData))
+    }
+    
     navigate('/')
   }
+
+  //get task from store
+
+  const getTaskFromStore = (taskId: string | undefined) => {
+    const selectedTask = tasksList?.find((task: Task) => task.id === taskId)
+    if (selectedTask) {
+      setFormData(selectedTask)
+    }
+  }
+  useEffect(()=> {
+    if (editMode) {
+      getTaskFromStore(id)
+    }
+  }, [])
+
   return (
     <>
       <h3 style={{ textAlign: 'center' }}>
@@ -65,12 +91,25 @@ export const TaskPage = ({ editMode }: { editMode?: boolean}) => {
               placeholder="Enter a description"
             ></Form.Control>
           </Form.Group>
-          {editMode ? (
-            <Form.Group as={Col} md="6">
-              <Form.Label className="ml-0">Completion: </Form.Label>
-              <Form.Check type="radio" name="completion" label={'done'} />
-            </Form.Group>
-          ) : null}
+          <Form.Group as={Col} md="6">
+            <Form.Label className="ml-0">Completion: </Form.Label>
+            <Form.Check
+              type="radio"
+              name="completion"
+              label="done"
+              value={"done"}
+              checked={formData.completion ==="done"}
+              onChange={handleChange}
+            />
+            <Form.Check
+              type="radio"
+              name="completion"
+              label="in progress"
+              value={"in progress"}
+              checked={formData.completion === "in progress"}
+              onChange={handleChange}
+            />
+          </Form.Group>
         </Col>
         <AddOrUpdateButton
           title={editMode ? 'Update your task' : 'Add a new task'}
