@@ -59,45 +59,49 @@ export const Dashboard: React.FC = () => {
           </tr>
         </thead>
         <tbody>
-          {filteredTasks
-            ? filteredTasks.map((task: Task) => (
-                <tr key={task.id}>
-                  <th>{task.task}</th>
-                  <th>{task.description}</th>
-                  <th colSpan={4} className="text-center">
-                    {task.completion === 'done' ? (
-                      <IconButton
-                        src={done}
-                        imgDesc='Check'
-                        onClick={() =>
-                          handleToggleCompletion(task.id, task.completion)
-                        }
-                      />
-                    ) : (
-                      <IconButton
-                        src={progress}
-                        imgDesc='Progress'
-                        onClick={() =>
-                          handleToggleCompletion(task.id, task.completion)
-                        }
-                      />
-                    )}
-                  </th>
-                  <th className="text-center">
-                    <Link to={`/task/${task.id}`}>
-                      <IconButton src={edit} imgDesc='Pencil'/>
-                    </Link>
-                  </th>
-                  <th className="text-center">
+          {filteredTasks.length > 0 ? (
+            filteredTasks.map((task: Task) => (
+              <tr key={task.id}>
+                <td>{task.task}</td>
+                <td>{task.description}</td>
+                <td colSpan={4} className="text-center">
+                  {task.completion === 'done' ? (
                     <IconButton
-                      src={trash}
-                      imgDesc="Trash can"
-                      onClick={() => handleDelete(task.id)}
+                      src={done}
+                      imgDesc="Check"
+                      onClick={() =>
+                        handleToggleCompletion(task.id, task.completion)
+                      }
                     />
-                  </th>
-                </tr>
-              ))
-            : null}
+                  ) : (
+                    <IconButton
+                      src={progress}
+                      imgDesc="Progress"
+                      onClick={() =>
+                        handleToggleCompletion(task.id, task.completion)
+                      }
+                    />
+                  )}
+                </td>
+                <td className="text-center">
+                  <Link to={`/task/${task.id}`}>
+                    <IconButton src={edit} imgDesc="Pencil" />
+                  </Link>
+                </td>
+                <td className="text-center">
+                  <IconButton
+                    src={trash}
+                    imgDesc="Trash can"
+                    onClick={() => handleDelete(task.id)}
+                  />
+                </td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan={8}>There are no tasks yet.</td>
+            </tr>
+          )}
         </tbody>
       </Table>
       <Link to="/task">
