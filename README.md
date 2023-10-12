@@ -1,27 +1,51 @@
-# React + TypeScript + Vite
+# Project Title
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Task Manager App
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Project Title](#project-title)
+  - [Table of Contents](#table-of-contents)
+  - [About](#about)
+  - [Demo link](#demo-link)
+  - [Screenshots](#screenshots)
+  - [Getting Started](#getting-started)
+  - [Technologies](#technologies)
 
-## Expanding the ESLint configuration
+## About
+The app allows users to manage tasks.
+Key Features:
+&#8226; Create
+&#8226; Delete
+&#8226; Edit
+&#8226; Set status
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Demo link 
+Access my site at [https://sofiiaruban.github.io/task-manager-app](https://sofiiaruban.github.io/task-manager-app/)
 
-- Configure the top-level `parserOptions` property like this:
+## Screenshots 
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+# Home
+`![Writing](https://ibb.co/SV3LHfd)`
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+# Filtration
+`![Writing](https://ibb.co/dkpwk8d)`
+
+## Getting Started
+
+# Clone the repository
+git clone https://github.com/sofiiaruban/task-manager-app.git
+
+# Navigate to the project folder
+cd your-project
+
+# Install dependencies
+npm install
+
+# Run the app
+npm run dev
+
+## Technologies
+<p align="left"> <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> <a href="https://redux.js.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" alt="redux" width="40" height="40"/> </a> <a href="https://sass-lang.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg" alt="sass" width="40" height="40"/> </a> <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/> </a> 
+<a href=https://react-bootstrap.netlify.app" target="_blank" rel="noreferrer"> <img src="https://react-bootstrap.netlify.app/img/logo.svg" alt="react-bootstrap" width="40" height="40"/> </a> 
+</p>
