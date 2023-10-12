@@ -35,7 +35,7 @@ export const Dashboard: React.FC = () => {
   const handleToggleCompletion = (taskId: string, completion: string) => {
     const newCompletion = completion === 'done' ? 'in progress' : 'done'
     dispatch(updateCompletion({ id: taskId, completion: newCompletion }))
-    updateTaskById(taskId, {[completion]: newCompletion})
+    updateTaskById(taskId, {completion: newCompletion})
   }
 
   const tasksToDisplay = tasksList?.length > 0 ? tasksList : storageTasks
