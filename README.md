@@ -39,7 +39,7 @@ Access my site at [https://sofiiaruban.github.io/task-manager-app](https://sofii
 git clone https://github.com/sofiiaruban/task-manager-app.git
 
 ## Navigate to the project folder
-cd your-project
+cd task-manager-app
 
 ## Install dependencies
 npm install
