@@ -1,11 +1,11 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import Table from 'react-bootstrap/Table'
 import { AddOrUpdateButton } from '../components/AddOrUpdateButton'
 import { StatusSelect } from '../components/StatusSelect'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux' 
 import { RootState } from '../redux/store'
-import { deleteTask, updateCompletion } from '../redux/tasks/tasksSlice' 
+import { addTask, deleteTask, updateCompletion } from '../redux/tasks/tasksSlice' 
 import { Task } from '../types/Task'
 import { IconButton } from '../components/IconButton'
 import edit from '../assets/edit.svg'
@@ -38,14 +38,23 @@ export const Dashboard: React.FC = () => {
     updateTaskById(taskId, {completion: newCompletion})
   }
 
-  const tasksToDisplay = tasksList?.length > 0 ? tasksList : storageTasks
-
   // filter func
   const filteredTasks =
     selectedStatus === 'all'
-      ? tasksToDisplay
-      : tasksToDisplay.filter((task:Task) => task.completion === selectedStatus)
-  
+      ? tasksList
+      : tasksList.filter((task: Task) => task.completion === selectedStatus)
+
+ // push to store task if page reloading
+  useEffect(() => {
+    if (tasksList.length === 0 && storageTasks.length > 0) {
+      storageTasks.forEach((task: Task) => {
+        if (!tasksList.some((t) => t.id === task.id)) {
+          dispatch(addTask(task))
+        }
+      })
+    }
+  }, [dispatch, tasksList, storageTasks])
+
   return (
     <Container>
       <StatusSelect onSelectOption={handleStatusSelect} />
