@@ -31,7 +31,6 @@ Access my site at [https://sofiiaruban.github.io/task-manager-app](https://sofii
 
 ## Filtration
 
-<img src="https://ibb.co/dkpwk8d" alt="home page" /> 
 
 # Getting Started
 
