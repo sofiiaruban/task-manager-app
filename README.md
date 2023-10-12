@@ -1,18 +1,18 @@
-# Project Title
+## Project Title
 
 Task Manager App
 
-## Table of Contents
+# Table of Contents
 
 - [Project Title](#project-title)
-  - [Table of Contents](#table-of-contents)
-  - [About](#about)
-  - [Demo link](#demo-link)
-  - [Screenshots](#screenshots)
-  - [Getting Started](#getting-started)
-  - [Technologies](#technologies)
+- [Table of Contents](#table-of-contents)
+- [About](#about)
+- [Demo link](#demo-link)
+- [Screenshots](#screenshots)
+- [Getting Started](#getting-started)
+- [Technologies](#technologies)
 
-## About
+# About
 The app allows users to manage tasks.
 Key Features:
 &#8226; Create
@@ -20,32 +20,34 @@ Key Features:
 &#8226; Edit
 &#8226; Set status
 
-## Demo link 
+# Demo link 
 Access my site at [https://sofiiaruban.github.io/task-manager-app](https://sofiiaruban.github.io/task-manager-app/)
 
-## Screenshots 
+# Screenshots 
 
-# Home
-`![Writing](https://ibb.co/SV3LHfd)`
+## Home
 
-# Filtration
-`![Writing](https://ibb.co/dkpwk8d)`
+<img src="https://ibb.co/SV3LHfd" alt="home page" /> 
 
-## Getting Started
+## Filtration
 
-# Clone the repository
+<img src="https://ibb.co/dkpwk8d" alt="home page" /> 
+
+# Getting Started
+
+## Clone the repository
 git clone https://github.com/sofiiaruban/task-manager-app.git
 
-# Navigate to the project folder
+## Navigate to the project folder
 cd your-project
 
-# Install dependencies
+## Install dependencies
 npm install
 
-# Run the app
+##Run the app
 npm run dev
 
-## Technologies
-<p align="left"> <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> <a href="https://redux.js.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" alt="redux" width="40" height="40"/> </a> <a href="https://sass-lang.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg" alt="sass" width="40" height="40"/> </a> <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/> </a> 
+# Technologies
+<p align="left"> <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/>  &nbsp;  &nbsp; <a href="https://redux.js.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" alt="redux" width="40" height="40"/> </a> &nbsp;  &nbsp; <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/> </a> 
 <a href=https://react-bootstrap.netlify.app" target="_blank" rel="noreferrer"> <img src="https://react-bootstrap.netlify.app/img/logo.svg" alt="react-bootstrap" width="40" height="40"/> </a> 
 </p>
