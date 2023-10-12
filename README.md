@@ -31,6 +31,16 @@ Access my site at [https://sofiiaruban.github.io/task-manager-app](https://sofii
 
 ## Filtration
 
+![filter](https://github.com/sofiiaruban/task-manager-app/assets/37212452/586fd02a-21ee-4587-9f53-cfa90a53ae3d) 
+
+## Create
+
+
+![create](https://github.com/sofiiaruban/task-manager-app/assets/37212452/c1d9a9d7-df42-4ae9-ae9e-74f1505a065f)
+
+## Edit
+
+![update](https://github.com/sofiiaruban/task-manager-app/assets/37212452/f475a910-b0e3-4558-bb43-e6e3a696a2e6)
 
 # Getting Started
 
@@ -48,5 +58,5 @@ npm run dev
 
 # Technologies
 <p align="left"> <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/>  &nbsp;  &nbsp; <a href="https://redux.js.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" alt="redux" width="40" height="40"/> </a> &nbsp;  &nbsp; <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/> </a> 
-<a href=https://react-bootstrap.netlify.app" target="_blank" rel="noreferrer"> <img src="https://react-bootstrap.netlify.app/img/logo.svg" alt="react-bootstrap" width="40" height="40"/> </a> 
+  &nbsp;   &nbsp;  <a href=https://react-bootstrap.netlify.app" target="_blank" rel="noreferrer"> <img src="https://react-bootstrap.netlify.app/img/logo.svg" alt="react-bootstrap" width="40" height="40"/> </a> 
 </p>
