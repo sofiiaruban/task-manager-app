@@ -27,7 +27,7 @@ Access my site at [https://sofiiaruban.github.io/task-manager-app](https://sofii
 
 ## Home
 
-<img src="https://ibb.co/SV3LHfd" alt="home page" /> 
+![main](https://github.com/sofiiaruban/task-manager-app/assets/37212452/a065e84e-1da5-46f7-8d21-aabd70ed10ab)
 
 ## Filtration
 
