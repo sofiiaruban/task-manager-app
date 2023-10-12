@@ -44,7 +44,7 @@ cd your-project
 ## Install dependencies
 npm install
 
-##Run the app
+## Run the app
 npm run dev
 
 # Technologies
