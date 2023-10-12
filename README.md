@@ -1,4 +1,4 @@
-## Project Title
+# Project Title
 
 Task Manager App
 
@@ -13,12 +13,12 @@ Task Manager App
 - [Technologies](#technologies)
 
 # About
-The app allows users to manage tasks.
-Key Features:
-&#8226; Create
-&#8226; Delete
-&#8226; Edit
-&#8226; Set status
+The app allows users to manage tasks.<br>
+Key Features:<br>
+&#8226; Create <br>
+&#8226; Delete <br> 
+&#8226; Edit <br>
+&#8226; Set status <br>
 
 # Demo link 
 Access my site at [https://sofiiaruban.github.io/task-manager-app](https://sofiiaruban.github.io/task-manager-app/)
